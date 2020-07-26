@@ -129,3 +129,8 @@ targets = test[target_col][window_len:]
 preds = model.predict(X_test).squeeze()
 
 mean_absolute_error(preds, y_test)
+
+preds = test[target_col].values[:-window_len] * (preds + 1)
+preds = pd.Series(index=targets.index, data=preds)
+
+line_plot(targets, preds, 'actual', 'prediction', lw=3)
