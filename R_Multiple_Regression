@@ -1,0 +1,7 @@
+dat <- read.csv("data.csv")
+
+plot(dat)
+
+multiple.regression <- lm(Deaths ~ ICU.Beds + Hospitals + Physicians, data=dat)
+summary(multiple.regression)
+plot(multiple.regression)
